@@ -36,7 +36,7 @@ API using node.js, nestjs and graphql with a CRUD of job openings.
 
 ## Mapped queries
 
-To perform the queries you need to have an application running and access (http://localhost:4000/graphiql)
+To perform the queries you need to have an application running and access (http://localhost:4000/graphql)
 
 ```bash
 # Return all jobs
