@@ -1,48 +1,44 @@
+import { ObjectType, Field } from '@nestjs/graphql';
+
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
   OneToMany,
-  OneToOne,
-  JoinColumn,
 } from 'typeorm';
 
-@Entity()
+@ObjectType()
+@Entity('companies')
 export class Company {
 
+  @Field()
   @PrimaryGeneratedColumn('rowid')
   id: number;
 
+  @Field()
   @Column({ length: 100, nullable: false })
   name: string;
 
-  @OneToOne(() => Legacy)
-  @JoinColumn()
-  legacy: Legacy;
+  @Field()
+  @Column({ length: 500, nullable: false })
+  legacy: string;
 
+  @Field(() => [CompanyValue])
   @OneToMany(() => CompanyValue, (value) => value.company)
   values: [CompanyValue];
 
 }
 
-@Entity()
-export class Legacy {
-
-  @PrimaryGeneratedColumn('rowid')
-  id: number;
-
-  @Column({ length: 500, nullable: false })
-  description: string;
-
-}
-
-@Entity()
+@ObjectType()
+@Entity('company_values')
 export class CompanyValue {
 
+  @Field()
   @PrimaryGeneratedColumn('rowid')
   id: number;
 
+  @Field()
   @Column({ length: 500, nullable: false })
   description: string;
 
