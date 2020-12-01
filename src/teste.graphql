@@ -1,0 +1,12 @@
+input teste {
+    id: ID!
+    by: String
+}
+
+type ab {
+    a: String
+}
+
+type Query {
+    allTestes(teste: teste): ab
+}
