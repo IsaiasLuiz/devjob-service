@@ -1,7 +1,7 @@
-import { ObjectType, Field } from '@nestjs/graphql';
+import { Field, InputType } from '@nestjs/graphql';
 
-@ObjectType()
-export class Contact {
+@InputType()
+export class ContactInput {
 
   @Field({ nullable: true })
   phone: string;
@@ -13,6 +13,6 @@ export class Contact {
   whatsapp: string;
 
   @Field({ nullable: true })
-  linkedin?: string;
+  linkedin: string;
 
 }

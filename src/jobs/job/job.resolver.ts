@@ -1,4 +1,5 @@
-import { Resolver, Args, Int } from '@nestjs/graphql';
+import { JobInput } from './input/job.input';
+import { Resolver, Args, Int, Mutation } from '@nestjs/graphql';
 import { Query } from '@nestjs/graphql';
 
 import { JobService } from './job.service';
@@ -12,6 +13,21 @@ export class JobResolver {
   @Query(() => [Job])
   jobs(): Promise<Job[]> {
     return this.jobService.getJobs();
+  }
+
+  @Mutation(() => Job)
+  jobCreate(@Args('job') job: JobInput): Promise<Job> {
+    return this.jobService.createJob(job);
+  }
+
+  @Mutation(() => Job)
+  jobUpdate(@Args('id') id: string, @Args('job') job: JobInput): Promise<Job> {
+    return this.jobService.updateJob(id, job);
+  }
+
+  @Mutation(() => Boolean)
+  jobDelete(@Args('id') id: string): Promise<boolean> {
+    return this.jobService.deleteJob(id);
   }
 
 }

@@ -1,20 +1,17 @@
+import { JobModule } from './jobs/job.module';
 import { Module } from '@nestjs/common';
 
 import { GraphQLModule } from '@nestjs/graphql';
 
-import { TypeOrmModule } from '@nestjs/typeorm';
-
-import { JobService } from './jobs/job/job.service';
-
-import { JobResolver } from './jobs/job/job.resolver';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: true,
     }),
-    TypeOrmModule.forRoot(),
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017'),
+    JobModule,
   ],
-  providers: [JobResolver, JobService],
 })
 export class AppModule {}
