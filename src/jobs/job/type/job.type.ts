@@ -4,10 +4,11 @@ import { Location } from './../../location/type/location.type';
 import { Company } from './../../company/type/company.type';
 import { Recruiter } from './../../recruiter/type/recruiter.type';
 import { Contact } from './../../contact/type/contact.type';
-import { Remuneration } from './../../remuneration/type/remuneration.type';
+import { Benefit } from './../../remuneration/type/remuneration.type';
 import { Responsibility } from './../../responsibility/type/responsibility.type';
 import { Technology } from './../../technology/type/technology.type';
 import { Qualification } from './../../qualification/type/qualification.type';
+import { VacancyEnum } from '../../vacancy-type/VacancyType';
 
 @ObjectType()
 export class Job {
@@ -28,6 +29,18 @@ export class Job {
   @Field()
   description: string;
 
+  @Field()
+  remuneration: number;
+
+  @Field()
+  isRemoteWork: boolean;
+
+  @Field()
+  seniority: string;
+
+  @Field(type => VacancyEnum)
+  vacancyType: VacancyEnum;
+
   @Field(() => [Qualification])
   qualifications: Qualification[];
 
@@ -40,8 +53,8 @@ export class Job {
   @Field(() => Company)
   company: Company;
 
-  @Field(() => [Remuneration])
-  remunerations: Remuneration[];
+  @Field(() => [Benefit])
+  benefits: Benefit[];
 
   @Field(() => Location)
   location: Location;

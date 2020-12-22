@@ -1,14 +1,14 @@
-import { Field, ID, InputType } from '@nestjs/graphql';
+import { Field, InputType } from '@nestjs/graphql';
 
 import { RecruiterInput } from './../../recruiter/input/recruiter.input';
 import { ContactInput } from './../../contact/input/contact.input';
 import { LocationInput } from './../../location/input/location.input';
-import { RemunerationInput } from './../../remuneration/input/remuneration.input';
+import { BenefitInput } from './../../remuneration/input/remuneration.input';
 import { CompanyInput } from './../../company/input/company.input';
 import { ResponsibilityInput } from './../../responsibility/input/responsibility.input';
 import { TechnologyInput } from './../../technology/input/technology.input';
 import { QualificationInput } from './../../qualification/input/qualification.input';
-
+import { VacancyEnum } from '../../vacancy-type/VacancyType';
 
 @InputType()
 export class JobInput {
@@ -18,6 +18,18 @@ export class JobInput {
 
   @Field()
   description: string;
+
+  @Field()
+  remuneration: number;
+
+  @Field()
+  isRemoteWork: boolean;
+
+  @Field()
+  seniority: string;
+
+  @Field(type => VacancyEnum)
+  vacancyType: VacancyEnum;
 
   @Field(() => [QualificationInput])
   qualifications: [QualificationInput];
@@ -31,8 +43,8 @@ export class JobInput {
   @Field(() => CompanyInput)
   company: CompanyInput;
 
-  @Field(() => [RemunerationInput])
-  remunerations: [RemunerationInput];
+  @Field(() => [BenefitInput])
+  benefits: [BenefitInput];
 
   @Field(() => LocationInput)
   location: LocationInput;

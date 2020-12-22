@@ -9,7 +9,4 @@ export class LocationInput {
   @Field()
   state: string;
 
-  @Field()
-  isRemoteWork: boolean;
-
 }

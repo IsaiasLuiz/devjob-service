@@ -9,7 +9,4 @@ export class Location {
   @Field()
   state: string;
 
-  @Field()
-  isRemoteWork: boolean;
-
 }

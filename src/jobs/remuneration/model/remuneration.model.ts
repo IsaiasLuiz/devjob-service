@@ -1,6 +1,6 @@
 import { Prop } from '@nestjs/mongoose';
 
-export class RemunerationModel {
+export class BenefitModel {
 
   @Prop({ required: true })
   description: string;

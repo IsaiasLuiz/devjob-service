@@ -8,7 +8,4 @@ export class LocationModel {
   @Prop({ required: true })
   state: string;
 
-  @Prop({ required: true })
-  isRemoteWork: boolean;
-
 }

@@ -1,7 +1,7 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
-export class Remuneration {
+export class Benefit {
 
   @Field()
   description: string;

@@ -1,7 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
-export class RemunerationInput {
+export class BenefitInput {
 
   @Field()
   description: string;

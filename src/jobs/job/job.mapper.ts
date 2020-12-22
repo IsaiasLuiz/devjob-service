@@ -10,7 +10,7 @@ import { Responsibility } from './../responsibility/type/responsibility.type';
 import { Qualification } from './../qualification/type/qualification.type';
 
 import { CompanyValueModel } from './../company/model/company.model';
-import { RemunerationModel } from './../remuneration/model/remuneration.model';
+import { BenefitModel } from './../remuneration/model/remuneration.model';
 import { ResponsibilityModel } from './../responsibility/model/responsibility.model';
 import { TechnologyModel } from './../technology/model/technology.model';
 import { QualificationModel } from './../qualification/model/qualification.model';
@@ -28,6 +28,10 @@ export class JobMapper implements Mapper<JobModel, Job> {
 
     jobModel.title = input.title;
     jobModel.description = input.description;
+    jobModel.remuneration = input.remuneration;
+    jobModel.isRemoteWork = input.isRemoteWork;
+    jobModel.seniority = input.seniority;
+    jobModel.vacancyType = input.vacancyType;
     jobModel.qualifications = input.qualifications.map((q) => {
       const qualification = new QualificationModel();
       qualification.description = q.description;
@@ -45,8 +49,8 @@ export class JobMapper implements Mapper<JobModel, Job> {
       responsibility.description = r.description;
       return responsibility;
     });
-    jobModel.remunerations = input.remunerations.map((r) => {
-      const remuneration = new RemunerationModel();
+    jobModel.benefits = input.benefits.map((r) => {
+      const remuneration = new BenefitModel();
       remuneration.description = r.description;
       remuneration.value = r.value;
       return remuneration;
@@ -60,7 +64,6 @@ export class JobMapper implements Mapper<JobModel, Job> {
     jobModel.company.legacy = input.company.legacy;
     jobModel.location.city = input.location.city;
     jobModel.location.state = input.location.state;
-    jobModel.location.isRemoteWork = input.location.isRemoteWork;
     jobModel.contact.phone = input.contact.phone;
     jobModel.contact.mail = input.contact.mail;
     jobModel.contact.linkedin = input.contact.linkedin;
@@ -80,6 +83,10 @@ export class JobMapper implements Mapper<JobModel, Job> {
     jobType.id = model.id;
     jobType.title = model.title;
     jobType.description = model.description;
+    jobType.remuneration = model.remuneration;
+    jobType.isRemoteWork = model.isRemoteWork;
+    jobType.seniority = model.seniority;
+    jobType.vacancyType = model.vacancyType;
     jobType.qualifications = model.qualifications.map((q) => {
       const qualification = new Qualification();
       qualification.description = q.description;
@@ -97,8 +104,8 @@ export class JobMapper implements Mapper<JobModel, Job> {
       responsibility.description = r.description;
       return responsibility;
     });
-    jobType.remunerations = model.remunerations.map((r) => {
-      const remuneration = new RemunerationModel();
+    jobType.benefits = model.benefits.map((r) => {
+      const remuneration = new BenefitModel();
       remuneration.description = r.description;
       remuneration.value = r.value;
       return remuneration;
@@ -112,12 +119,14 @@ export class JobMapper implements Mapper<JobModel, Job> {
     jobType.company.legacy = model.company.legacy;
     jobType.location.city = model.location.city;
     jobType.location.state = model.location.state;
-    jobType.location.isRemoteWork = model.location.isRemoteWork;
     jobType.contact.phone = model.contact.phone;
     jobType.contact.mail = model.contact.mail;
     jobType.contact.linkedin = model.contact.linkedin;
     jobType.contact.whatsapp = model.contact.whatsapp;
     jobType.recruiter.name = model.recruiter.name;
+
+    jobType.createdAt = model.createdAt;
+    jobType.updatedAt = model.updatedAt;
 
     return jobType;
   }

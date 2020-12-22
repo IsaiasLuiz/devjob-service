@@ -6,10 +6,11 @@ import { RecruiterModel } from './../../recruiter/model/recruiter.model';
 import { ContactModel } from './../../contact/model/contact.model';
 import { LocationModel } from './../../location/model/location.model';
 import { CompanyModel } from './../../company/model/company.model';
-import { RemunerationModel } from './../../remuneration/model/remuneration.model';
+import { BenefitModel } from './../../remuneration/model/remuneration.model';
 import { ResponsibilityModel } from './../../responsibility/model/responsibility.model';
 import { TechnologyModel } from './../../technology/model/technology.model';
 import { QualificationModel } from './../../qualification/model/qualification.model';
+import { VacancyEnum } from '../../vacancy-type/VacancyType';
 
 export type JobDocument = JobModel & Document;
 
@@ -31,6 +32,18 @@ export class JobModel {
   @Prop({ required: true })
   description: string;
 
+  @Prop({ required: true })
+  remuneration: number;
+
+  @Prop()
+  isRemoteWork: boolean;
+
+  @Prop()
+  seniority: string;
+
+  @Prop({ required: true })
+  vacancyType: VacancyEnum;
+
   @Prop()
   qualifications: QualificationModel[];
 
@@ -44,7 +57,7 @@ export class JobModel {
   company: CompanyModel;
 
   @Prop()
-  remunerations: RemunerationModel[];
+  benefits: BenefitModel[];
 
   @Prop()
   location: LocationModel;
