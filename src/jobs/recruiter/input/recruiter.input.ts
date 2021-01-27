@@ -4,5 +4,8 @@ import { Field, InputType } from '@nestjs/graphql';
 export class RecruiterInput {
 
   @Field()
+  recruiterId: string;
+
+  @Field()
   name: string;
 }

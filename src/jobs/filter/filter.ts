@@ -31,4 +31,7 @@ export class Filter {
   @Field({ nullable: true })
   state: string;
 
+  @Field({ nullable: true })
+  recruiterId: string;
+
 }

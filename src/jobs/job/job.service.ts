@@ -33,7 +33,11 @@ export class JobService {
         query = query.where({ title: { $regex: filter.title, $options: 'i' } });
       }
       if (filter?.seniority) {
-        query = query.where({ seniority: filter.seniority });
+        query = query.where({
+          seniority: {
+            $regex: new RegExp('^' + filter.seniority, 'i'),
+          },
+        });
       }
       if (filter?.tecnologies) {
         query = query.where({
@@ -52,13 +56,28 @@ export class JobService {
         query = query.where({ vacancyType: filter.vacancyType });
       }
       if (filter?.companyName) {
-        query = query.where({ 'companies.name': filter.companyName });
+        query = query.where({
+          'companies.name': {
+            $regex: new RegExp('^' + filter.companyName, 'i'),
+          },
+        });
       }
       if (filter?.city) {
-        query = query.where({ 'location.city': filter.city });
+        query = query.where({
+          'location.city': {
+            $regex: new RegExp('^' + filter.city, 'i'),
+          },
+        });
       }
       if (filter?.state) {
-        query = query.where({ 'location.state': filter.state });
+        query = query.where({
+          'location.state': {
+            $regex: new RegExp('^' + filter.state, 'i'),
+          },
+        });
+      }
+      if (filter?.recruiterId) {
+        query = query.where({ 'recruiter.recruiterId': filter.recruiterId });
       }
     }
 

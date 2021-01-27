@@ -6,10 +6,4 @@ export class Technology {
   @Field()
   name: string;
 
-  @Field()
-  timeExperience: string;
-
-  @Field()
-  description: string;
-
 }

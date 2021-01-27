@@ -4,5 +4,8 @@ import { ObjectType, Field } from '@nestjs/graphql';
 export class Recruiter {
 
   @Field()
+  recruiterId: string;
+
+  @Field()
   name: string;
 }

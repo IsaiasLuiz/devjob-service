@@ -6,7 +6,7 @@ export class BenefitInput {
   @Field()
   description: string;
 
-  @Field()
+  @Field({ nullable: true })
   value: number;
 
 }

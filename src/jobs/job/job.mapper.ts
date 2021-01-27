@@ -40,8 +40,6 @@ export class JobMapper implements Mapper<JobModel, Job> {
     jobModel.technologies = input.technologies.map((t) => {
       const technology = new TechnologyModel();
       technology.name = t.name;
-      technology.description = t.description;
-      technology.timeExperience = t.timeExperience;
       return technology;
     });
     jobModel.responsibilities = input.responsibilities.map((r) => {
@@ -69,6 +67,7 @@ export class JobMapper implements Mapper<JobModel, Job> {
     jobModel.contact.linkedin = input.contact.linkedin;
     jobModel.contact.whatsapp = input.contact.whatsapp;
     jobModel.recruiter.name = input.recruiter.name;
+    jobModel.recruiter.recruiterId = input.recruiter.recruiterId;
 
     return jobModel;
   }
@@ -95,8 +94,6 @@ export class JobMapper implements Mapper<JobModel, Job> {
     jobType.technologies = model.technologies.map((t) => {
       const technology = new TechnologyModel();
       technology.name = t.name;
-      technology.description = t.description;
-      technology.timeExperience = t.timeExperience;
       return technology;
     });
     jobType.responsibilities = model.responsibilities.map((r) => {
@@ -124,6 +121,7 @@ export class JobMapper implements Mapper<JobModel, Job> {
     jobType.contact.linkedin = model.contact.linkedin;
     jobType.contact.whatsapp = model.contact.whatsapp;
     jobType.recruiter.name = model.recruiter.name;
+    jobType.recruiter.recruiterId = model.recruiter.recruiterId;
 
     jobType.createdAt = model.createdAt;
     jobType.updatedAt = model.updatedAt;

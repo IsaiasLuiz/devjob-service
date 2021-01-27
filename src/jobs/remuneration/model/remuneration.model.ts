@@ -5,7 +5,7 @@ export class BenefitModel {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ required: true })
+  @Prop()
   value: number;
 
 }
