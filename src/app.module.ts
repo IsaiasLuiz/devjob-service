@@ -11,7 +11,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       autoSchemaFile: true,
       cors: true,
     }),
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017'),
+    MongooseModule.forRoot('mongodb+srv://devjob:12345@cluster0.sjojk.mongodb.net/devjob?retryWrites=true&w=majority'),
     JobModule,
   ],
 })
