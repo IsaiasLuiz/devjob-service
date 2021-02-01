@@ -10,6 +10,8 @@ import { MongooseModule } from '@nestjs/mongoose';
     GraphQLModule.forRoot({
       autoSchemaFile: true,
       cors: true,
+      introspection: true,
+      playground: true,
     }),
     MongooseModule.forRoot('mongodb+srv://devjob:12345@cluster0.sjojk.mongodb.net/devjob?retryWrites=true&w=majority'),
     JobModule,
